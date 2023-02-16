@@ -3,6 +3,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const app = express()
+const PORT = process.env.PORT || 5000
 app.use(helmet())
 app.use(morgan('dev'))
 app.use(express.static('public'))
@@ -233,3 +234,7 @@ const states = {
         "code": "36"
     }
 }
+
+app.listen(PORT, () => {
+    console.log(`running on port ${PORT}`)
+})
